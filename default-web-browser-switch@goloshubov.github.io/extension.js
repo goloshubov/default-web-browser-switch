@@ -39,7 +39,7 @@ function enable() {
   gicon_firefox = Gio.icon_new_for_string(Me.path + "/icons/" + FIREFOX_ICON);
   gicon_chrome = Gio.icon_new_for_string(Me.path + "/icons/" + CHROME_ICON);
 
-  let [ok, out, err, exit] = GLib.spawn_command_line_sync("sh -c 'xdg-settings check default-web-browser firefox.desktop'");
+  let [ok, out, err, exit] = GLib.spawn_command_line_sync("xdg-settings check default-web-browser firefox.desktop");
 
   if (ByteArray.toString(out).includes('yes')) {
     icon.set_gicon(gicon_firefox)

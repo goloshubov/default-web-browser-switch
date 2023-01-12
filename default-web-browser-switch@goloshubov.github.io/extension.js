@@ -21,7 +21,6 @@ function init(metadata) {
 
 
 function toggleDefaultBrowser() {
-  //let [ok, out, err, exit] = GLib.spawn_command_line_sync('sh -c "[[ "$(xdg-settings check default-web-browser firefox.desktop)" == "yes" ]] && (echo yes; xdg-settings set default-web-browser google-chrome.desktop) || (echo no; xdg-settings set default-web-browser firefox.desktop)"');
   let [ok, out, err, exit] = GLib.spawn_command_line_sync("xdg-settings check default-web-browser firefox.desktop");
   if (ByteArray.toString(out).includes('yes')) {
     icon.set_gicon(gicon_chrome)

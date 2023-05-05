@@ -24,7 +24,8 @@ function toggleDefaultBrowser() {
   let [ok, out, err, exit] = GLib.spawn_command_line_sync("xdg-settings check default-web-browser firefox.desktop");
   if (ByteArray.toString(out).includes('yes')) {
     icon.set_gicon(gicon_chrome)
-    let [ok, out, err, exit] = GLib.spawn_command_line_sync("xdg-settings set default-web-browser google-chrome.desktop");
+    //let [ok, out, err, exit] = GLib.spawn_command_line_sync("xdg-settings set default-web-browser google-chrome.desktop");
+    let [ok, out, err, exit] = GLib.spawn_command_line_sync("xdg-settings set default-web-browser com.google.Chrome.desktop");
   } else {
     icon.set_gicon(gicon_firefox)
     let [ok, out, err, exit] = GLib.spawn_command_line_sync("xdg-settings set default-web-browser firefox.desktop");

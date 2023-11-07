@@ -2,14 +2,9 @@
   "description": "default-web-browser switch (firefox,google-chrome)",
   "name": "default-web-browser switch",
   "shell-version": [
-    "3.36",
-    "3.38",
-    "40",
-    "41",
-    "42",
-    "43"
+    "45"
   ],
   "url": "https://github.com/goloshubov/default-web-browser-switch",
   "uuid": "default-web-browser-switch@goloshubov.github.io",
-  "version": 1 
+  "version": 2
 }

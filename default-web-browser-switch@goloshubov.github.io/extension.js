@@ -27,7 +27,7 @@ export default class DefaultBrowserExtension extends Extension {
         this._icon.set_gicon(gicon_chrome)
       }
 
-      this._button.actor.add_actor(this._icon);
+      this._button.actor.add_child(this._icon);
       this._button.actor.connect('button-press-event', (item, event) => {
           let [ok, out, err, exit] = GLib.spawn_command_line_sync("xdg-settings check default-web-browser firefox.desktop");
           if (ByteArray.toString(out).includes('yes')) {

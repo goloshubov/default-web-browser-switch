@@ -19,7 +19,7 @@ export default class DefaultBrowserExtension extends Extension {
       this._button = new PanelMenu.Button(0.0);
       this._icon = new St.Icon({ style_class: 'system-status-icon' });
 
-      let [ok, out, err, exit] = GLib.spawn_command_line_sync("xdg-settings check default-web-browser firefox.desktop");
+      let [ok, out, err, exit] = GLib.spawn_command_line_sync("xdg-settings check default-web-browser org.mozilla.firefox.desktop");
 
       if (ByteArray.toString(out).includes('yes')) {
         this._icon.set_gicon(gicon_firefox)
@@ -29,14 +29,14 @@ export default class DefaultBrowserExtension extends Extension {
 
       this._button.actor.add_child(this._icon);
       this._button.actor.connect('button-press-event', (item, event) => {
-          let [ok, out, err, exit] = GLib.spawn_command_line_sync("xdg-settings check default-web-browser firefox.desktop");
+          let [ok, out, err, exit] = GLib.spawn_command_line_sync("xdg-settings check default-web-browser org.mozilla.firefox.desktop");
           if (ByteArray.toString(out).includes('yes')) {
               this._icon.set_gicon(gicon_chrome)
               //let [ok, out, err, exit] = GLib.spawn_command_line_sync("xdg-settings set default-web-browser google-chrome.desktop");
               let [ok, out, err, exit] = GLib.spawn_command_line_sync("xdg-settings set default-web-browser com.google.Chrome.desktop");
           } else {
               this._icon.set_gicon(gicon_firefox)
-              let [ok, out, err, exit] = GLib.spawn_command_line_sync("xdg-settings set default-web-browser firefox.desktop");
+              let [ok, out, err, exit] = GLib.spawn_command_line_sync("xdg-settings set default-web-browser org.mozilla.firefox.desktop");
           }
       });
 
